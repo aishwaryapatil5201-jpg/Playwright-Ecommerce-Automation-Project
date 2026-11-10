@@ -1,0 +1,153 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Playwright: electronics headed chromium",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"test",
+				"tests/electronics.spec.ts",
+				"--project=chromium",
+				"--headed"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Validate electronics Playwright test",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"test",
+				"tests/electronics.spec.ts",
+				"--project=chromium",
+				"--headed"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Run electronics test validation",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"test",
+				"tests/electronics.spec.ts",
+				"--project=chromium",
+				"--headed"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Run electronics test final verification",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"test",
+				"tests/electronics.spec.ts",
+				"--project=chromium",
+				"--headed"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Electronics flow validation v2",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"test",
+				"tests/electronics.spec.ts",
+				"--project=chromium",
+				"--headed"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Electronics flow validation v3",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"test",
+				"tests/electronics.spec.ts",
+				"--project=chromium",
+				"--headed"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Run headed confirmation Playwright test",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"test",
+				"tests/confirm.spec.ts",
+				"--project=chromium",
+				"--headed"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Playwright test suite",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"test"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Rerun full Playwright suite",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"test"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run serialized Playwright suite",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"test"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Playwright Chromium tests",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"test",
+				"--project=chromium"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Playwright HTML report",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"show-report"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}
