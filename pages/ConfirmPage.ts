@@ -7,7 +7,7 @@ export class ConfirmPage{
 
 constructor(page:Page){
     this.page= page;
-    this.confirmDetails = this.page.getByText('Confirm Your Details');
+    this.confirmDetails = this.page.getByRole('heading', { name: 'Confirm Details' });
     this.placeOrder = this.page.getByRole('link',{name:'Place Order'});
 }
 async clickPlaceOrder(){

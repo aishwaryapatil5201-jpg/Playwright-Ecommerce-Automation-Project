@@ -148,6 +148,75 @@
 			],
 			"isBackground": true,
 			"problemMatcher": []
+		},
+		{
+			"label": "Playwright WebKit headed tests",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"test",
+				"--project=webkit",
+				"--headed"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Debug WebKit login test",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"test",
+				"tests/login.spec.ts",
+				"--project=webkit",
+				"--headed"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Verify WebKit login routing",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"test",
+				"tests/login.spec.ts",
+				"--project=webkit",
+				"--headed"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Retest WebKit login header navigation",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"test",
+				"tests/login.spec.ts",
+				"--project=webkit",
+				"--headed"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Compare Chromium login test",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"test",
+				"tests/login.spec.ts",
+				"--project=chromium",
+				"--headed"
+			],
+			"isBackground": false,
+			"problemMatcher": []
 		}
 	]
 }

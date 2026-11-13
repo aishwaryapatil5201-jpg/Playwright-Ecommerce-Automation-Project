@@ -41,16 +41,23 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-   /* {
+    {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
     },
 
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      use: {
+        ...devices['Desktop Safari'],
+        /* The AUT loads jQuery from code.jquery.com; WebKit rejects that CDN's
+           certificate, so the page's login handler never attaches. This masks
+           only this known CDN problem - remove it once the application fixes
+           that dependency, since it hides other certificate errors too. */
+        ignoreHTTPSErrors: true,
+      },
     },
-*/
+
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',

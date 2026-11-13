@@ -16,5 +16,8 @@ export class LoginPage{
         await this.email.fill(email);
         await this.password.fill(password);
         await this.loginButton.click();
+        await this.page.getByRole('button', { name: 'Logout' }).waitFor({ state: 'visible' });
+        await this.page.getByTestId('header-logo-link').click();
+       
     }
 }
