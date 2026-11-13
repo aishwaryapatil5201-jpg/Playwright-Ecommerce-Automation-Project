@@ -217,6 +217,20 @@
 			],
 			"isBackground": false,
 			"problemMatcher": []
+		},
+		{
+			"label": "Verify login spec WebKit",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"test",
+				"tests/login.spec.ts",
+				"--project=webkit",
+				"--headed"
+			],
+			"isBackground": false,
+			"problemMatcher": []
 		}
 	]
 }
