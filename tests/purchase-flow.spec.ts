@@ -3,18 +3,12 @@ import { checkoutData } from '../test-data/checkoutData';
 
 test('complete purchase flow', async ({
   page,
-  loginPage,
   electronicsPage,
   cartPage,
   checkoutPage,
   confirmPage,
 }) => {
-  await page.goto('https://shop.qaautomationlabs.com/');
-
-  // Login
-  await loginPage.Login('demo@demo.com', 'demo');
-  await expect(page.getByRole('button', { name: 'Logout' })).toBeVisible();
-
+  // Session comes from the saved storage state created by tests/auth.setup.ts.
   // Select a product and add it to the cart
   await page.goto('https://shop.qaautomationlabs.com/electronics.php');
   await electronicsPage.clickSamsungMobile();

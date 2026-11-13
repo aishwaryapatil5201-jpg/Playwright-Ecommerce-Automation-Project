@@ -1,12 +1,8 @@
 import{test,expect} from '../fixtures/basefixture';
 import { checkoutData } from '../test-data/checkoutData';
-test('Checkout Test', async ({ page, loginPage, homePage, electronicsPage, cartPage, checkoutPage }) => {
-                                     
-   await page.goto('https://shop.qaautomationlabs.com/');                     
-   await loginPage.Login('demo@demo.com', 'demo');                            
-   await expect(page).toHaveURL('https://shop.qaautomationlabs.com/shop.php');
-   
+test('Checkout Test', async ({ page, checkoutPage }) => {
 
+    // Session comes from the saved storage state created by tests/auth.setup.ts.
     await page.goto('https://shop.qaautomationlabs.com/checkout.php');
    // await checkoutPage.clickCheckout();
     await checkoutPage.fillingAddress(

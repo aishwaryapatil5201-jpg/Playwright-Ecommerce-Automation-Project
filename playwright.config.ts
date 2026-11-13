@@ -1,12 +1,12 @@
 import { defineConfig, devices } from '@playwright/test';
+import fs from 'node:fs';
+import path from 'node:path';
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
+/* Load .env (if present) so credentials stay out of the repository. */
+const envFile = path.resolve(__dirname, '.env');
+if (fs.existsSync(envFile) && typeof process.loadEnvFile === 'function') {
+  process.loadEnvFile(envFile);
+}
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -36,26 +36,43 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    /* Logs in once and saves the session for every browser project below. */
     {
-      name: 'chromium',
+      name: 'setup',
+      testMatch: /.*\.setup\.ts/,
       use: { ...devices['Desktop Chrome'] },
     },
 
     {
+      name: 'chromium',
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: 'playwright/.auth/user.json',
+      },
+      dependencies: ['setup'],
+    },
+
+    {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: {
+        ...devices['Desktop Firefox'],
+        storageState: 'playwright/.auth/user.json',
+      },
+      dependencies: ['setup'],
     },
 
     {
       name: 'webkit',
       use: {
         ...devices['Desktop Safari'],
+        storageState: 'playwright/.auth/user.json',
         /* The AUT loads jQuery from code.jquery.com; WebKit rejects that CDN's
            certificate, so the page's login handler never attaches. This masks
            only this known CDN problem - remove it once the application fixes
            that dependency, since it hides other certificate errors too. */
         ignoreHTTPSErrors: true,
       },
+      dependencies: ['setup'],
     },
 
     /* Test against mobile viewports. */
